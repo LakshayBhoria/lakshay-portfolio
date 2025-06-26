@@ -247,7 +247,6 @@
       }
     }
 
-    /* Animations */
     @keyframes typing {
       from { width: 0 }
       to { width: 100% }
@@ -286,7 +285,7 @@
       <a href="#" onclick="showSection(event, 'experience')">Experience</a>
       <a href="#" onclick="showSection(event, 'education')">Education</a>
       <a href="#" onclick="showSection(event, 'certifications')">Certifications</a>
-      <a href="#" onclick="showSection(event, 'projects/startup collab')">Projects/Startup Collab</a>
+      <a href="#" onclick="showSection(event, 'projects')">Projects/Startup Collab</a>
       <a href="#" onclick="showSection(event, 'contact')">Contact</a>
     </div>
   </nav>
@@ -308,10 +307,7 @@
 
   <section id="about">
     <h2>About Me</h2>
-    <p>I'm Lakshay Bhoria, a passionate PCM student with a deep interest in AI and Research.
-      With a strong foundation in mathematics and computer science, I thrive in innovative environments
-      and enjoy solving complex problems. Currently pursuing a B.Tech in CSE with a specialization in AI & ML
-      at Haridwar University.</p>
+    <p>I'm Lakshay Bhoria, a passionate PCM student with a deep interest in AI and Research...</p>
   </section>
 
   <section id="experience">
@@ -326,10 +322,7 @@
   <section id="education">
     <h2>Education</h2>
     <ul>
-      <li><strong>Haridwar University (2024 – 2028)</strong><br />
-      B.Tech in Computer Science Engineering – AI & ML<br />
-      Courses: Artificial Intelligence, Machine Learning, Data Structures<br />
-      Member of AI Society & Coding Club</li>
+      <li><strong>Haridwar University</strong> – B.Tech CSE AI/ML (2024–2028)</li>
     </ul>
   </section>
 
@@ -337,24 +330,19 @@
     <h2>Certifications</h2>
     <ul>
       <li>Google Cloud Certified – Professional Cloud Architect</li>
-      <li>Google Cloud Skills Boost – Arcade Trivia (Jan 2025)</li>
-      <li>Artificial Intelligence Fundamentals – IBM SkillsBuild</li>
-      <li>AI Fundamentals – Cisco Networking Academy & IBM SkillsBuild</li>
-      <li>Applied Machine Learning: Feature Engineering – LinkedIn Learning (Jan 7, 2025)</li>
-      <li>Google Cloud Fundamentals: Core Infrastructure – Google Cloud</li>
-      <li>Intellectual Property Rights (Badge)</li>
-      <li>Certificate Member – Tech Innovation Council</li>
+      <li>IBM AI Fundamentals, Cisco AI Course</li>
     </ul>
   </section>
 
-  <section id="projects/startup collab">
+  <section id="projects">
     <h2>Project / Startup Collaboration Request</h2>
     <p>If you're looking to collaborate on an AI, ML, or startup project, let’s connect!</p>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <input type="url" placeholder="Your LinkedIn Profile Link" required />
-      <textarea placeholder="Tell me about your idea..." rows="4" required></textarea>
+    <form action="https://formspree.io/f/mvgrvyba" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <input type="url" name="linkedin" placeholder="Your LinkedIn Profile Link" required />
+      <textarea name="idea" placeholder="Tell me about your idea..." rows="4" required></textarea>
       <button type="submit" class="form-btn">Submit Request</button>
     </form>
   </section>
@@ -363,10 +351,11 @@
     <h2>Contact Me</h2>
     <p>Email: <a href="mailto:lk3661366@gmail.com" style="color:#00bcd4">lk3661366@gmail.com</a></p>
     <p>LinkedIn: <a href="https://linkedin.com/in/lakshay-bhoria-8a970127b" target="_blank" style="color:#00bcd4">lakshay-bhoria</a></p>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Your Message" required></textarea>
+    <form action="https://formspree.io/f/mvgrvyba" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" required></textarea>
       <button type="submit" class="form-btn">Send Message</button>
     </form>
   </section>
