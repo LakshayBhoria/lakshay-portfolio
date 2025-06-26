@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lakshay Bhoria | Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0a192f;
+      color: white;
+      padding-top: 80px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      background: #071a2f;
+      padding: 1rem 10%;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    nav h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+      color: #00bcd4;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
+    }
+
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6rem 10% 4rem;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 280px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      margin: 0 0 0.5rem;
+    }
+
+    .hero-text h2 {
+      color: #00bcd4;
+      margin: 0;
+      font-weight: 400;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid #00bcd4;
+      width: 0;
+      animation: typing 4s steps(30, end) forwards, blink 0.7s step-end infinite;
+    }
+
+    .hero-text p {
+      color: #ccc;
+      margin: 1rem 0 2rem;
+    }
+
+    .hero-buttons button {
+      padding: 0.8rem 1.5rem;
+      margin-right: 1rem;
+      border-radius: 5px;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .primary-btn {
+      background: #00bcd4;
+      color: #fff;
+      box-shadow: 0 0 10px #00bcd4;
+    }
+
+    .secondary-btn {
+      background: transparent;
+      color: #00bcd4;
+      border: 2px solid #00bcd4;
+    }
+
+    .hero-buttons button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #00bcd4;
+    }
+
+    .hero-img {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .hero-img img {
+      max-width: 400px;
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      border: 3px solid transparent;
+      background-image: linear-gradient(#0a192f, #0a192f), linear-gradient(45deg, #00bcd4, #1cefff, #00bcd4);
+      background-origin: border-box;
+      background-clip: content-box, border-box;
+      animation: borderGlow 5s linear infinite;
+    }
+
+    section {
+      padding: 4rem 10%;
+      display: none;
+    }
+
+    section.active {
+      display: block;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    h2 {
+      color: #00bcd4;
+      font-size: 2rem;
+    }
+
+    section p,
+    section li {
+      font-size: 1.2rem;
+    }
+
+    ul {
+      padding-left: 1rem;
+    }
+
+    li {
+      color: #ccc;
+    }
+
+    form {
+      max-width: 500px;
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input, textarea {
+      padding: 0.75rem;
+      border-radius: 5px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .form-btn {
+      background-color: #00bcd4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 0.75rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .form-btn:hover {
+      background-color: #019cb0;
+      box-shadow: 0 0 10px #00bcd4;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        background: #071a2f;
+        padding-top: 1rem;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links a {
+        text-align: center;
+        padding: 1rem 0;
+        width: 100%;
+      }
+
+      .hero {
+        flex-direction: column;
+        padding-top: 8rem;
+        text-align: center;
+      }
+    }
+
+    /* Animations */
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes borderGlow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h1>Lakshay Bhoria</h1>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="#" onclick="showHome()">Home</a>
+      <a href="#" onclick="showSection(event, 'about')">About</a>
+      <a href="#" onclick="showSection(event, 'experience')">Experience</a>
+      <a href="#" onclick="showSection(event, 'education')">Education</a>
+      <a href="#" onclick="showSection(event, 'certifications')">Certifications</a>
+      <a href="#" onclick="showSection(event, 'projects/startup collab')">Projects/Startup Collab</a>
+      <a href="#" onclick="showSection(event, 'contact')">Contact</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Hi, I'm Lakshay Bhoria</h1>
+      <h2>AI/ML Enthusiast & Developer</h2>
+      <p>B.Tech CSE (AI & ML) | Haridwar University | Speaker | Research Enthusiast</p>
+      <div class="hero-buttons">
+        <button class="primary-btn" onclick="showSection(event, 'contact')">Hire Me</button>
+        <button class="secondary-btn" onclick="showSection(event, 'contact')">Let's Talk</button>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="WhatsApp Image 2024-12-31 at 20.07.41_03445852.jpg" alt="Lakshay Bhoria" />
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I'm Lakshay Bhoria, a passionate PCM student with a deep interest in AI and Research.
+      With a strong foundation in mathematics and computer science, I thrive in innovative environments
+      and enjoy solving complex problems. Currently pursuing a B.Tech in CSE with a specialization in AI & ML
+      at Haridwar University.</p>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <ul>
+        <li><strong>Google Developers Group – Member</strong> (Jan 2025 – Present)</li>
+      <li><strong>GDG Quantum University – Member</strong> (Jan 2025 – Present)</li>
+      <li><strong>Prodigy InfoTech – Generative AI Intern</strong> (Jan 2025 – Mar 2025)</li>
+    </ul>
+    </ul>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <ul>
+    <p><strong>Haridwar University (2024 – 2028)</strong><br />
+      B.Tech in Computer Science Engineering – AI & ML<br />
+      Courses: Artificial Intelligence, Machine Learning, Data Structures<br />
+      Member of AI Society & Coding Club
+    </ul>
+  </section>
+
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <ul>
+      <li></li>Google Cloud Certified – Professional Cloud Architect</li>
+      <li>Google Cloud Skills Boost – Arcade Trivia (Jan 2025)</li>
+      <li>Artificial Intelligence Fundamentals – IBM SkillsBuild</li>
+      <li>AI Fundamentals – Cisco Networking Academy & IBM SkillsBuild</li>
+      <li>Applied Machine Learning: Feature Engineering – LinkedIn Learning (Jan 7, 2025)</li>
+      <li>Google Cloud Fundamentals: Core Infrastructure – Google Cloud</li>
+      <li>Intellectual Property Rights (Badge)</li>
+      <li>Certificate Member – Tech Innovation Council</li>
+    </ul>
+  </section>
+
+  <section id="projects/startup collab">
+    <h2>Project / Startup Collaboration Request</h2>
+    <p>If you're looking to collaborate on an AI, ML, or startup project, let’s connect!</p>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <input type="url" placeholder="Your LinkedIn Profile Link" required />
+      <textarea placeholder="Tell me about your idea..." rows="4" required></textarea>
+      <button type="submit" class="form-btn">Submit Request</button>
+    </form>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:lk3661366@gmail.com" style="color:#00bcd4">lk3661366@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/lakshay-bhoria-8a970127b" target="_blank" style="color:#00bcd4">lakshay-bhoria</a></p>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit" class="form-btn">Send Message</button>
+    </form>
+  </section>
+
+  <script>
+    function showSection(event, id) {
+      event.preventDefault();
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => section.classList.remove('active'));
+      document.querySelector('.hero').style.display = 'none';
+      document.getElementById(id).classList.add('active');
+      document.getElementById('navLinks').classList.remove('active');
+    }
+
+    function showHome() {
+      event.preventDefault();
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => section.classList.remove('active'));
+      document.querySelector('.hero').style.display = 'flex';
+      document.getElementById('navLinks').classList.remove('active');
+    }
+
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>
